@@ -59,3 +59,14 @@ From the `frontend` directory, run:
 npm run dev
 ```
 The application will typically be available at `http://localhost:5173`.
+
+## How to Use (Frontend)
+1. Upload knowledge base (icon DB)
+  - upload knowledge in knowledges folder
+  - because documents provided are small, chunk method static, chunk size 500 and overlap 50 is enough to make sure all information in a document is included in one chunk.
+  - you can see preview chunk to verify the chunking result.
+  - then save and index document.
+2. Create session (icon Chat)
+  - click new consultation 
+3. Chat with assistant
+

@@ -21,6 +21,8 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { chatApi } from './api';
 
 interface Message {
@@ -337,7 +339,11 @@ function App() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     className={`message ${m.role === 'user' ? 'message-user' : 'message-agent'}`}
                   >
-                    <div>{m.content}</div>
+                    <div className="markdown-content">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {m.content}
+                      </ReactMarkdown>
+                    </div>
                     {m.reason && (
                       <div style={{ marginTop: '0.5rem', fontSize: '0.7rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
                         Reason: {m.reason}
