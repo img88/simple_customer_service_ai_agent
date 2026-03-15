@@ -33,6 +33,8 @@ Untuk embedding model, saya menggunakan gemini-embedding-001 karena:
 - Tidak ada fitur reranking, sehingga informasi yang diambil dari FAISS bisa jadi kurang relevan dengan query, karena tidak diurutkan kembali berdasarkan relevansi. Untuk mengatasinya bisa menggunakan metode reranking untuk meningkatkan relevansi informasi yang diambil dari FAISS.
 ### LLM
 - Hanya bisa satu LLM saja, jika ingin diganti maka harus mengubah kode di beberapa tempat, sehingga akan memakan waktu dan biaya. Untuk mengatasinya bisa dengan menambahkan fitur untuk menyimpan LLM yang berbeda-beda sehingga bisa diganti-ganti sesuai kebutuhan.
+### Safety
+- Tidak ada fitur safety, hanya pakai prompt guard saja, pertanyaan yang tidak sesuai sebenarnya bisa dipotong sebelum sampai ke LLM, sehingga menghemat penggunaan token dan biaya.
 ### Database
 - Saat ini menggunakan SQLite yang hanya bisa menyimpan data dalam satu file, sehingga tidak bisa di-scale sesuai kebutuhan. Untuk mengatasinya bisa menggunakan database yang bisa di-scale sesuai kebutuhan.
 ### Monitoring
@@ -42,5 +44,7 @@ Untuk embedding model, saya menggunakan gemini-embedding-001 karena:
 ### Testing
 - Tidak ada fitur testing setelah knowledge base ditambahkan, jadi sebelum knowledge base di-deploy harus di-testing terlebih dahulu untuk memastikan kinerjanya. Untuk mengatasinya bisa dengan menambahkan fitur testing hibrid human + LLM untuk mengecek apakah knowledge base sudah sesuai dengan yang diharapkan.
 - Tidak ada unit testing, shingga perubahan kecil bisa saja menyebabkan error yang tidak terdeteksi.
+### Escalation
+- Dibanding set eskalasi otomatis jika AI tidak bisa menjawab pertanyaan, lebih baik menanyakan dulu ke user apakah user ingin eskalasi atau tidak. Jika user ingin eskalasi maka baru di-eskalasi. Ini akan mengurangi biaya komputasi. tapi jika biaya tidak masalah, maka eskalasi langsung bisa cukup langsung membantu user.
 ### Limitasi lain
 - Masih banyak limitasi yang lain selain yang saya sebutkan diatas, namun limitasi utamanya sudah saya sampaikan. Karena keterbatasan waktu saya hanya bisa menyampaikan limitasi utama saja.

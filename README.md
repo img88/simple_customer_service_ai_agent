@@ -70,3 +70,8 @@ The application will typically be available at `http://localhost:5173`.
   - click new consultation 
 3. Chat with assistant
 
+## Q1
+See **explanations** in: [Q1_explanations.md](./docs/Q1_explanations.md)
+
+## Q2
+See **explanations** in: [Q2_system_design.pdf](./docs/Q2_system_design.pdf)
